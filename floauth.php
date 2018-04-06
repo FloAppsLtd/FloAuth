@@ -1,7 +1,7 @@
 <?php
 /*
   Plugin Name: FloAuth
-  Version: 1.0.0
+  Version: 1.0.1
   Description: FloMembers authentication plugin
   Author: Flo Apps Ltd
   Author URI: http://www.floapps.com
@@ -222,7 +222,7 @@ function floauth_init() {
 					}
 
 					// Login member and redirect
-					floauth_do_authentication( $user_id, $user_login );
+					floauth_do_authentication( $user_id, $user_login, $matched_user );
 					wp_safe_redirect( $redirect_url );
 					exit();
 				} else {
@@ -244,7 +244,8 @@ function floauth_init() {
 
 					// Login member and redirect
 					if ( ! is_wp_error( $user_id ) ) {
-						floauth_do_authentication( $user_id, $username );
+						$user = get_user_by( 'id', $user_id );
+						floauth_do_authentication( $user_id, $username, $user );
 					}
 					wp_safe_redirect( $redirect_url );
 					exit();
@@ -275,11 +276,12 @@ add_action( 'init', 'floauth_init' );
  *
  * @param string $user_id
  * @param string $username
+ * @param WP_User $user_object
  */
-function floauth_do_authentication( $user_id, $username ) {
+function floauth_do_authentication( $user_id, $username, $user_object ) {
 	wp_set_current_user( $user_id, $username );
 	wp_set_auth_cookie( $user_id );
-	do_action( 'wp_login', $username );
+	do_action( 'wp_login', $username, $user_object );
 }
 
 /**
