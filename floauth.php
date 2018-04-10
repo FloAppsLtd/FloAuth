@@ -1,7 +1,7 @@
 <?php
 /*
   Plugin Name: FloAuth
-  Version: 1.0.1
+  Version: 1.0.2
   Description: FloMembers authentication plugin
   Author: Flo Apps Ltd
   Author URI: http://www.floapps.com
@@ -172,7 +172,8 @@ function floauth_init() {
 			$role = ( $_GET['role'] === 'admin' ? $admin_role : $member_role );
 
 			// Determine redirect URL by "floauth" parameter
-			$redirect_url = ( $_GET['floauth'] === 'pages' ? esc_url_raw( site_url( '/' ) . $extranet_path ) : esc_url_raw( admin_url() ) );
+			$redirect_path = apply_filters( 'floauth_modify_redirect_path', $extranet_path, $_GET );
+			$redirect_url = ( $_GET['floauth'] === 'pages' ? esc_url_raw( site_url( '/' ) . $redirect_path ) : esc_url_raw( admin_url() ) );
 
 			// Test existence of secret key and that hash matches
 			if ( $secret_key && $username && md5( $secret_key . $username ) === $hash ) {
@@ -196,8 +197,11 @@ function floauth_init() {
 					$user_id = $matched_user->ID;
 					$user_login = $matched_user->user_login;
 
-					// Get all core roles
-					$core_roles = array_keys( $wp_roles->get_names() );
+					// Get all roles
+					$all_roles = array_keys( $wp_roles->get_names() );
+
+					// Possibility to filter out roles that should not be checked and removed, f. ex. BBPress roles
+					$roles_to_check = apply_filters( 'floauth_filter_roles_to_check_on_login', $all_roles );
 
 					// Get roles of matched user
 					$user_current_roles = get_userdata( $user_id )->roles;
@@ -207,12 +211,11 @@ function floauth_init() {
 					if ( ! $user_already_has_role ) {
 
 						// Remove all core roles from user and add requested role
-						$user_obj = new WP_User( $user_id );
-						$user_current_core_roles = array_intersect( $core_roles, $user_current_roles );
-						foreach( $user_current_core_roles as $core_role ) {
-							$user_obj->remove_role( $core_role );
+						$user_matching_roles = array_intersect( $roles_to_check, $user_current_roles );
+						foreach( $user_matching_roles as $matching_role ) {
+							$matched_user->remove_role( $matching_role );
 						}
-						$user_obj->add_role( $role );
+						$matched_user->add_role( $role );
 					}
 
 					// Add user meta data

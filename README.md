@@ -65,6 +65,36 @@ function custom_floauth_assign_role_for_user( $role, $parameters ) {
 add_filter( 'floauth_assign_role_for_user', 'custom_floauth_assign_role_for_user', 10, 2 );
 ```
 
+### Filter roles which are checked and removed upon login ###
+
+For example if you have BBPress installed and don't want FloAuth to remove those roles from persons
+
+```
+function custom_floauth_filter_roles_to_check_on_login( $roles ) {
+	if ( function_exists( 'bbp_get_dynamic_roles' ) ) {
+		$bbpress_roles = array_keys( bbp_get_dynamic_roles() );
+		$roles = array_diff( $roles, $bbpress_roles );
+	}
+	return $roles;
+}
+add_filter( 'floauth_filter_roles_to_check_on_login', 'custom_floauth_filter_roles_to_check_on_login' );
+```
+
+### Modify path to which user is redirected ###
+
+For example redirect user back to where they came from, if `forum` parameter is present in the request (`forum` is supported by FloMembers)
+
+```
+function custom_floauth_modify_redirect_path( $redirect_path, $parameters ) {
+	if ( isset( $parameters['forum'] ) ) {
+		// In order to work, "forum" parameter should include a path to a page, f. ex. ?forum=another/page
+		$redirect_path = $parameters['forum'];
+	}
+	return $redirect_path;
+}
+add_filter( 'floauth_modify_redirect_path', 'custom_floauth_modify_redirect_path', 10, 2 );
+```
+
 ### Change capability for hiding extranet pages ###
 
 For example hide extranet pages from Subscriber also (default capability is `read`)
