@@ -100,7 +100,7 @@ function floauth_plugin_settings_page() {
 			        </th>
 			        <td>
 				        <input type="text" id="floauth_secret_key" class="regular-text" name="floauth_secret_key" value="<?php esc_attr_e( get_option( 'floauth_secret_key' ) ); ?>" />
-				        <p class="description"><?php _e( 'Insert alphanumeric secret key here. The key is provided by Flo Apps. You can contact us via our <a href="https://floapps.eu/support/index.php?a=add" target="_blank">support system</a>.', 'floauth' ); ?></p>
+				        <p class="description"><?php _e( 'Insert alphanumeric secret key here. The key is provided by Flo Apps. You can contact us via our <a href="https://floapps.eu/support/?a=add&category=9" target="_blank">support system</a>.', 'floauth' ); ?></p>
 			        </td>
 		        </tr>
 				<tr>
@@ -349,7 +349,7 @@ add_action( 'wp_dashboard_setup', 'floauth_add_dashboard_meta_box' );
 function floauth_dashboard_meta_box_content( $post, $callback_args ) {
 ?>
 
-	<p><?php _e( 'You can leave a support request at <a href="https://floapps.eu/support/index.php?a=add" target="_blank">https://floapps.eu/support/index.php?a=add</a>.', 'floauth' ); ?></p>
+	<p><?php _e( 'You can leave a support request at <a href="https://floapps.eu/support/?a=add&category=9" target="_blank">https://floapps.eu/support/?a=add&category=9</a>.', 'floauth' ); ?></p>
 	<p><?php _e( 'You can view knowledge base articles at <a href="https://floapps.eu/support/knowledgebase.php" target="_blank">https://floapps.eu/support/knowledgebase.php</a>.', 'floauth' ); ?></p>
 
 <?php
