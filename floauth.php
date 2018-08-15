@@ -1,7 +1,7 @@
 <?php
 /*
   Plugin Name: FloAuth
-  Version: 1.0.2
+  Version: 1.0.3
   Description: FloMembers authentication plugin
   Author: Flo Apps Ltd
   Author URI: http://www.floapps.com
@@ -100,7 +100,7 @@ function floauth_plugin_settings_page() {
 			        </th>
 			        <td>
 				        <input type="text" id="floauth_secret_key" class="regular-text" name="floauth_secret_key" value="<?php esc_attr_e( get_option( 'floauth_secret_key' ) ); ?>" />
-				        <p class="description"><?php _e( 'Insert alphanumeric secret key here. The key is provided by Flo Apps. You can contact us via our <a href="https://floapps.eu/support/?a=add&category=9" target="_blank">support system</a>.', 'floauth' ); ?></p>
+				        <p class="description"><?php printf( __( 'Insert alphanumeric secret key here. The key is provided by Flo Apps. You can contact us via our <a href="%s" target="_blank" rel="noreferrer noopener">support system</a>.', 'floauth' ), floauth_get_submit_support_ticket_url() ); ?></p>
 			        </td>
 		        </tr>
 				<tr>
@@ -305,7 +305,8 @@ function floauth_add_toolbar_link_to_flomembers( $wp_admin_bar ) {
 			'title' => 'FloMembers',
 			'href' => $flomembers_url,
 			'meta' => array(
-				'target' => '_blank'
+				'target' => '_blank',
+				'rel' => 'noopener noreferrer',
 			)
 		);
 		$wp_admin_bar->add_node( $args );
@@ -347,12 +348,40 @@ add_action( 'wp_dashboard_setup', 'floauth_add_dashboard_meta_box' );
  * Callback for printing dashboard widget content
  */
 function floauth_dashboard_meta_box_content( $post, $callback_args ) {
+	$support_url = floauth_get_submit_support_ticket_url();
+	$knowledgebase_url = 'https://floapps.eu/support/knowledgebase.php';
 ?>
 
-	<p><?php _e( 'You can leave a support request at <a href="https://floapps.eu/support/?a=add&category=9" target="_blank">https://floapps.eu/support/?a=add&category=9</a>.', 'floauth' ); ?></p>
-	<p><?php _e( 'You can view knowledge base articles at <a href="https://floapps.eu/support/knowledgebase.php" target="_blank">https://floapps.eu/support/knowledgebase.php</a>.', 'floauth' ); ?></p>
+	<p><?php printf( __( 'You can leave a support request at <a href="%s" target="_blank" rel="noreferrer noopener">%s</a>.', 'floauth' ), $support_url, $support_url ); ?></p>
+	<p><?php printf( __( 'You can view knowledge base articles at <a href="%s" target="_blank" rel="noreferrer noopener">%s</a>.', 'floauth' ), $knowledgebase_url, $knowledgebase_url ); ?></p>
 
 <?php
+}
+
+/**
+ * Print extra notification on Add New User screen
+ */
+function floauth_user_new_form_extra_notification( $type ) {
+	if ( $type === 'add-new-user' ) {
+		$article_link = 'https://floapps.eu/support/knowledgebase.php?article=188';
+	?>
+
+		<h3><?php _e( 'Notification from FloAuth', 'floauth' ); ?></h3>
+		<p><?php _e( 'In most cases, this form should <strong>not</strong> be used to create users. Please use <strong>FloMembers</strong> instead.', 'floauth' ); ?></p>
+		<p><?php printf( __( 'If you have questions, please see <a href="%s" target="_blank" rel="noreferrer noopener">this article</a> for more information or leave us a <a href="%s" target="_blank" rel="noreferrer noopener">support request</a>.', 'floauth' ), $article_link, floauth_get_submit_support_ticket_url() ); ?></p>
+
+	<?php
+	}
+}
+add_action( 'user_new_form', 'floauth_user_new_form_extra_notification' );
+
+/**
+ * Return URL for submitting new support tickets
+ *
+ * @return string
+ */
+function floauth_get_submit_support_ticket_url() {
+	return 'https://floapps.eu/support/?a=add&category=9';
 }
 
 /**

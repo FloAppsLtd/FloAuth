@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FloAuth plugin\n"
-"POT-Creation-Date: 2018-03-23 16:34+0200\n"
-"PO-Revision-Date: 2018-03-23 16:35+0200\n"
+"POT-Creation-Date: 2018-08-14 17:20+0300\n"
+"PO-Revision-Date: 2018-08-14 17:26+0300\n"
 "Last-Translator: \n"
 "Language-Team: Flo Apps Ltd <info@floapps.com>\n"
 "Language: fi_FI\n"
@@ -15,19 +15,19 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: floauth.php:77
+#: floauth.php:78
 msgid "You do not have sufficient permissions to access this page."
 msgstr "Sinulla ei ole riittäviä oikeuksia tämän sivun tarkastelemiseen."
 
-#: floauth.php:82
+#: floauth.php:83
 msgid "FloAuth Settings"
 msgstr "FloAuth Asetukset"
 
-#: floauth.php:89
+#: floauth.php:90
 msgid "FloMembers URL"
 msgstr "FloMembers URL"
 
-#: floauth.php:93
+#: floauth.php:94
 msgid ""
 "Insert your FloMembers installation URL <strong>without trailing slash</"
 "strong>."
@@ -35,26 +35,26 @@ msgstr ""
 "Aseta tähän FloMembers-asennuksesi URL-osoite <strong>ilman kauttaviivaa "
 "lopussa</strong>."
 
-#: floauth.php:98
+#: floauth.php:99
 msgid "Secret key"
 msgstr "Secret key"
 
-#: floauth.php:102
+#: floauth.php:103
+#, php-format
 msgid ""
 "Insert alphanumeric secret key here. The key is provided by Flo Apps. You "
-"can contact us via our <a href=\"https://floapps.eu/support/index.php?a=add"
-"\" target=\"_blank\">support system</a>."
+"can contact us via our <a href=\"%s\" target=\"_blank\" rel=\"noreferrer "
+"noopener\">support system</a>."
 msgstr ""
 "Aseta tähän numeroista ja kirjaimista koostuva secret key (salausavain). "
-"Avaimen saat Flo Appsilta. Saat yhteyden meihin <a href=\"https://floapps.eu/"
-"support/index.php?a=add\" target=\"_blank\">tukipyyntöjärjestelmämme</a> "
-"kautta."
+"Avaimen saat Flo Appsilta. Saat yhteyden meihin <a href=\"%s\" target="
+"\"_blank\" rel=\"noreferrer noopener\">tukipyyntöjärjestelmämme</a> kautta."
 
-#: floauth.php:107
+#: floauth.php:108
 msgid "Role given to regular users"
 msgstr "Käyttäjälle annettava rooli"
 
-#: floauth.php:113
+#: floauth.php:114
 msgid ""
 "Select the role which will be automatically assigned to <strong>regular "
 "users</strong> on login."
@@ -62,11 +62,11 @@ msgstr ""
 "Valitse rooli, joka annetaan <strong>tavalliselle käyttäjälle</strong> hänen "
 "sisäänkirjautuessaan."
 
-#: floauth.php:118
+#: floauth.php:119
 msgid "Role given to admins"
 msgstr "Pääkäyttäjälle annettava rooli"
 
-#: floauth.php:124
+#: floauth.php:125
 msgid ""
 "Select the role which will be automatically assigned to <strong>website "
 "administrators</strong> on login."
@@ -74,11 +74,11 @@ msgstr ""
 "Valitse rooli, joka annetaan <strong>pääkäyttäjälle</strong> (Website "
 "Administrator) hänen sisäänkirjautuessaan."
 
-#: floauth.php:129
+#: floauth.php:130
 msgid "Extranet path"
 msgstr "Jäsenalueen polku"
 
-#: floauth.php:134
+#: floauth.php:135
 msgid ""
 "Insert the URL part (slug) of the page which serves as the member area "
 "(extranet) page. This page and its children are blocked and filtered out of "
@@ -88,18 +88,18 @@ msgstr ""
 "kyseiselle sivulle ja sen alasivuille estetään ja ne piilotetaan "
 "hakutuloksista sisäänkirjautumattomilta käyttäjiltä."
 
-#: floauth.php:135
+#: floauth.php:136
 msgid "Examples:"
 msgstr "Esimerkkejä:"
 
-#: floauth.php:136
+#: floauth.php:137
 msgid ""
 "Extranet URL: https://example.com/members, insert <strong>members</strong>"
 msgstr ""
 "Jäsenalueen osoite: https://example.com/jasenille, aseta <strong>jasenille</"
 "strong>"
 
-#: floauth.php:137
+#: floauth.php:138
 msgid ""
 "Extranet URL: https://example.com/some-page/members, insert <strong>some-"
 "page/members</strong>"
@@ -107,29 +107,85 @@ msgstr ""
 "Jäsenalueen osoite: https://example.com/sivu/jasenille, aseta <strong>sivu/"
 "jasenille</strong>"
 
-#: floauth.php:300
+#: floauth.php:342
 msgid "Flo Apps (support)"
 msgstr "Flo Apps (tuki)"
 
-#: floauth.php:309
+#: floauth.php:355
+#, php-format
 msgid ""
-"You can leave a support request at <a href=\"https://floapps.eu/support/"
-"index.php?a=add\" target=\"_blank\">https://floapps.eu/support/index.php?"
-"a=add</a>."
+"You can leave a support request at <a href=\"%s\" target=\"_blank\" rel="
+"\"noreferrer noopener\">%s</a>."
 msgstr ""
-"Voit jättää tukipyynnön osoitteessa <a href=\"https://floapps.eu/support/"
-"index.php?a=add\" target=\"_blank\">https://floapps.eu/support/index.php?"
-"a=add</a>."
+"Voit jättää tukipyynnön osoitteessa <a href=\"%s\" target=\"_blank\" rel="
+"\"noreferrer noopener\">%s</a>."
 
-#: floauth.php:310
+#: floauth.php:356
+#, php-format
 msgid ""
-"You can view knowledge base articles at <a href=\"https://floapps.eu/support/"
-"knowledgebase.php\" target=\"_blank\">https://floapps.eu/support/"
-"knowledgebase.php</a>."
+"You can view knowledge base articles at <a href=\"%s\" target=\"_blank\" rel="
+"\"noreferrer noopener\">%s</a>."
 msgstr ""
-"Tukipankkiartikkelit löytyvät osoitteesta <a href=\"https://floapps.eu/"
-"support/knowledgebase.php\" target=\"_blank\">https://floapps.eu/support/"
-"knowledgebase.php</a>."
+"Tukipankkiartikkelit löytyvät osoitteesta <a href=\"%s\" target=\"_blank\" "
+"rel=\"noreferrer noopener\">%s</a>."
+
+#: floauth.php:369
+msgid "Notification from FloAuth"
+msgstr "FloAuth-ilmoitus"
+
+#: floauth.php:370
+msgid ""
+"In most cases, this form should <strong>not</strong> be used to create "
+"users. Please use <strong>FloMembers</strong> instead."
+msgstr ""
+"Useimmissa tapauksissa tätä lomaketta <strong>ei</strong> tule käyttää "
+"uusien käyttäjien luomiseen. Tee toimenpide <strong>FloMembersissa</strong>."
+
+#: floauth.php:371
+#, php-format
+msgid ""
+"If you have questions, please see <a href=\"%s\" target=\"_blank\" rel="
+"\"noreferrer noopener\">this article</a> for more information or leave us a "
+"<a href=\"%s\" target=\"_blank\" rel=\"noreferrer noopener\">support "
+"request</a>."
+msgstr ""
+"Jos sinulla on kysymyksiä, saat lisätietoja <a href=\"%s\" target=\"_blank\" "
+"rel=\"noreferrer noopener\">tästä artikkelista</a>. Voit myös jättää meille "
+"<a href=\"%s\" target=\"_blank\" rel=\"noreferrer noopener\">tukipyynnön</a>."
+
+#~ msgid ""
+#~ "We recommend you to use <strong>FloMembers</strong> for user management."
+#~ msgstr ""
+#~ "Suosittelemme käyttämään <strong>FloMembersiä</strong> käyttäjien "
+#~ "hallintaan."
+
+#~ msgid ""
+#~ "Insert alphanumeric secret key here. The key is provided by Flo Apps. You "
+#~ "can contact us via our <a href=\"https://floapps.eu/support/index.php?"
+#~ "a=add\" target=\"_blank\">support system</a>."
+#~ msgstr ""
+#~ "Aseta tähän numeroista ja kirjaimista koostuva secret key (salausavain). "
+#~ "Avaimen saat Flo Appsilta. Saat yhteyden meihin <a href=\"https://floapps."
+#~ "eu/support/index.php?a=add\" target=\"_blank\">tukipyyntöjärjestelmämme</"
+#~ "a> kautta."
+
+#~ msgid ""
+#~ "You can leave a support request at <a href=\"https://floapps.eu/support/"
+#~ "index.php?a=add\" target=\"_blank\">https://floapps.eu/support/index.php?"
+#~ "a=add</a>."
+#~ msgstr ""
+#~ "Voit jättää tukipyynnön osoitteessa <a href=\"https://floapps.eu/support/"
+#~ "index.php?a=add\" target=\"_blank\">https://floapps.eu/support/index.php?"
+#~ "a=add</a>."
+
+#~ msgid ""
+#~ "You can view knowledge base articles at <a href=\"https://floapps.eu/"
+#~ "support/knowledgebase.php\" target=\"_blank\">https://floapps.eu/support/"
+#~ "knowledgebase.php</a>."
+#~ msgstr ""
+#~ "Tukipankkiartikkelit löytyvät osoitteesta <a href=\"https://floapps.eu/"
+#~ "support/knowledgebase.php\" target=\"_blank\">https://floapps.eu/support/"
+#~ "knowledgebase.php</a>."
 
 #~ msgid ""
 #~ "Insert alphanumeric secret key here. The key is provided by Flo Apps. You "
