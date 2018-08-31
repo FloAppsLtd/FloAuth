@@ -1,7 +1,7 @@
 <?php
 /*
   Plugin Name: FloAuth
-  Version: 1.0.3
+  Version: 1.0.4
   Description: FloMembers authentication plugin
   Author: Flo Apps Ltd
   Author URI: http://www.floapps.com
@@ -166,6 +166,7 @@ function floauth_init() {
 
 			// Get URL parameters
 			$hash = $_GET['hash'];
+			$person_id = ( isset( $_GET['id'] ) ? $_GET['id'] : null );
 			$username = ( isset( $_GET['username'] ) ? $_GET['username'] : null );
 			$firstname = ( isset( $_GET['firstname'] ) ? $_GET['firstname'] : null );
 			$lastname = ( isset( $_GET['lastname'] ) ? $_GET['lastname'] : null );
@@ -190,8 +191,18 @@ function floauth_init() {
 				// For example if person does not have a member role in FloMembers, you can change the role assigned
 				$role = apply_filters( 'floauth_assign_role_for_user', $role, $_GET );
 
-				// Search for matching user by email address
-				$matched_user = get_user_by( 'email' , $username );
+				// Possibility to use FloMembers id as user_login
+				$parameter_for_matching_user = apply_filters( 'floauth_parameter_for_matching_user', 'email' );
+				$use_id_as_user_login = false;
+
+				// Search for matching user
+				if ( $parameter_for_matching_user === 'id' && $person_id ) {
+					$use_id_as_user_login = true;
+					$matched_user = get_user_by( 'login', $person_id );
+				} else {
+					$matched_user = get_user_by( 'email', $username );
+				}
+
 				if ( $matched_user ) {
 					global $wp_roles;
 					$user_id = $matched_user->ID;
@@ -218,6 +229,16 @@ function floauth_init() {
 						$matched_user->add_role( $role );
 					}
 
+					// Update user_email if id used as matching parameter and email doesn't match
+					if ( $use_id_as_user_login && $matched_user->user_email !== $username ) {
+						wp_update_user(
+							array(
+								'ID' => $user_id,
+								'user_email' => $username,
+							)
+						);
+					}
+
 					// Add user meta data
 					foreach ( $user_meta as $key => $value ) {
 						$previous_value = get_user_meta( $user_id, $key, true );
@@ -232,7 +253,7 @@ function floauth_init() {
 					// Insert new user if no matching user found
 					$userdata = array(
 						'user_pass' => wp_generate_password(),
-						'user_login' => $username,
+						'user_login' => ( $use_id_as_user_login ? $person_id : $username ),
 						'user_email' => $username,
 						'first_name' => $firstname,
 						'last_name' => $lastname,

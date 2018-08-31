@@ -123,3 +123,17 @@ function custom_hide_admin_bar_capability( $capability ) {
 }
 add_filter( 'floauth_hide_admin_bar_capability', 'custom_hide_admin_bar_capability' );
 ```
+
+### Use FloMembers ID as user_login ###
+
+FloMembers ID can be used as the matching attribute when a user logs in. This can be useful if you need to ensure the corresponding WordPress user stays intact even if a member changes their e-mail address.
+
+**Note!** Existing users need to be removed from WordPress before adding this filter. Otherwise the new user with ID as `user_login` cannot be created as their email already exists.
+
+```
+function custom_floauth_parameter_for_matching_user( $parameter ) {
+	// Possible values: 'id' | 'email' (default)
+	return 'id';
+}
+add_filter( 'floauth_parameter_for_matching_user', 'custom_floauth_parameter_for_matching_user' );
+```
