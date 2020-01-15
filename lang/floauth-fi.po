@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FloAuth plugin\n"
-"POT-Creation-Date: 2018-08-14 17:20+0300\n"
-"PO-Revision-Date: 2018-08-14 17:26+0300\n"
+"POT-Creation-Date: 2020-01-15 10:15+0200\n"
+"PO-Revision-Date: 2020-01-15 10:15+0200\n"
 "Last-Translator: \n"
 "Language-Team: Flo Apps Ltd <info@floapps.com>\n"
 "Language: fi_FI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 2.2.4\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: __;_e\n"
@@ -30,10 +30,10 @@ msgstr "FloMembers URL"
 #: floauth.php:94
 msgid ""
 "Insert your FloMembers installation URL <strong>without trailing slash</"
-"strong>."
+"strong> (f. ex. https://edge.flomembers.com/demo)."
 msgstr ""
 "Aseta tähän FloMembers-asennuksesi URL-osoite <strong>ilman kauttaviivaa "
-"lopussa</strong>."
+"lopussa</strong> (esim. https://edge.flomembers.com/demo)."
 
 #: floauth.php:99
 msgid "Secret key"
@@ -107,11 +107,11 @@ msgstr ""
 "Jäsenalueen osoite: https://example.com/sivu/jasenille, aseta <strong>sivu/"
 "jasenille</strong>"
 
-#: floauth.php:342
+#: floauth.php:363
 msgid "Flo Apps (support)"
 msgstr "Flo Apps (tuki)"
 
-#: floauth.php:355
+#: floauth.php:376
 #, php-format
 msgid ""
 "You can leave a support request at <a href=\"%s\" target=\"_blank\" rel="
@@ -120,7 +120,7 @@ msgstr ""
 "Voit jättää tukipyynnön osoitteessa <a href=\"%s\" target=\"_blank\" rel="
 "\"noreferrer noopener\">%s</a>."
 
-#: floauth.php:356
+#: floauth.php:377
 #, php-format
 msgid ""
 "You can view knowledge base articles at <a href=\"%s\" target=\"_blank\" rel="
@@ -129,11 +129,11 @@ msgstr ""
 "Tukipankkiartikkelit löytyvät osoitteesta <a href=\"%s\" target=\"_blank\" "
 "rel=\"noreferrer noopener\">%s</a>."
 
-#: floauth.php:369
+#: floauth.php:390
 msgid "Notification from FloAuth"
 msgstr "FloAuth-ilmoitus"
 
-#: floauth.php:370
+#: floauth.php:391
 msgid ""
 "In most cases, this form should <strong>not</strong> be used to create "
 "users. Please use <strong>FloMembers</strong> instead."
@@ -141,7 +141,7 @@ msgstr ""
 "Useimmissa tapauksissa tätä lomaketta <strong>ei</strong> tule käyttää "
 "uusien käyttäjien luomiseen. Tee toimenpide <strong>FloMembersissa</strong>."
 
-#: floauth.php:371
+#: floauth.php:392
 #, php-format
 msgid ""
 "If you have questions, please see <a href=\"%s\" target=\"_blank\" rel="

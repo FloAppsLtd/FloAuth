@@ -91,7 +91,7 @@ function floauth_plugin_settings_page() {
 			        </th>
 			        <td>
 				        <input type="text" id="floauth_flomembers_url" class="regular-text" name="floauth_flomembers_url" value="<?php esc_attr_e( get_option( 'floauth_flomembers_url' ) ); ?>" />
-				        <p class="description"><?php _e( 'Insert your FloMembers installation URL <strong>without trailing slash</strong>.', 'floauth' ); ?></p>
+				        <p class="description"><?php _e( 'Insert your FloMembers installation URL <strong>without trailing slash</strong> (f. ex. https://edge.flomembers.com/demo).', 'floauth' ); ?></p>
 			        </td>
 		        </tr>
 		        <tr>
