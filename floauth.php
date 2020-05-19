@@ -448,7 +448,7 @@ function floauth_block_extranet_pages() {
 				$current_post_id = get_the_ID();
 				$ancestors = get_post_ancestors( $current_post_id );
 				if ( $restricted_post_id === $current_post_id || in_array( $restricted_post_id, $ancestors ) ) {
-					wp_redirect( home_url( '/' ) );
+					wp_redirect( apply_filters( 'floauth_restrict_extranet_block_redirect', home_url( '/' ) ) );
 					exit();
 				}
 			}
