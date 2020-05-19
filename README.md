@@ -95,6 +95,16 @@ function custom_floauth_modify_redirect_path( $redirect_path, $parameters ) {
 add_filter( 'floauth_modify_redirect_path', 'custom_floauth_modify_redirect_path', 10, 2 );
 ```
 
+### Modify redirect path for user with no access ###
+
+```
+function custom_floauth_restrict_extranet_block_redirect( $url ) {
+	// Do some magic
+	return $url;
+}
+add_filter( 'floauth_restrict_extranet_block_redirect', 'custom_floauth_restrict_extranet_block_redirect' );
+```
+
 ### Change capability for hiding extranet pages ###
 
 For example hide extranet pages from Subscriber also (default capability is `read`)
