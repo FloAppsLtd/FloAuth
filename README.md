@@ -115,7 +115,7 @@ function custom_restrict_extranet_pages_capability( $capability ) {
 }
 add_filter( 'floauth_restrict_extranet_pages_capability', 'custom_restrict_extranet_pages_capability' );
 ```
-More info on WordPress [Roles and Capabilities](https://codex.wordpress.org/Roles_and_Capabilities)
+More info on WordPress [Roles and Capabilities](https://wordpress.org/support/article/roles-and-capabilities/)
 
 ### Keep WordPress toolbar always visible ###
 
