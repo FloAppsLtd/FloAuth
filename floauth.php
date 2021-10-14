@@ -370,7 +370,7 @@ add_action( 'wp_dashboard_setup', 'floauth_add_dashboard_meta_box' );
  */
 function floauth_dashboard_meta_box_content( $post, $callback_args ) {
 	$support_url = floauth_get_submit_support_ticket_url();
-	$knowledgebase_url = 'https://floapps.eu/support/knowledgebase.php';
+	$knowledgebase_url = 'https://support.floapps.com/knowledgebase.php';
 ?>
 
 	<p><?php printf( __( 'You can leave a support request at <a href="%s" target="_blank" rel="noreferrer noopener">%s</a>.', 'floauth' ), $support_url, $support_url ); ?></p>
@@ -384,7 +384,7 @@ function floauth_dashboard_meta_box_content( $post, $callback_args ) {
  */
 function floauth_user_new_form_extra_notification( $type ) {
 	if ( $type === 'add-new-user' ) {
-		$article_link = 'https://floapps.eu/support/knowledgebase.php?article=188';
+		$article_link = 'https://support.floapps.com/knowledgebase.php?article=188';
 	?>
 
 		<h3><?php _e( 'Notification from FloAuth', 'floauth' ); ?></h3>
@@ -402,7 +402,7 @@ add_action( 'user_new_form', 'floauth_user_new_form_extra_notification' );
  * @return string
  */
 function floauth_get_submit_support_ticket_url() {
-	return 'https://floapps.eu/support/?a=add&category=9';
+	return 'https://support.floapps.com/?a=add&category=9';
 }
 
 /**
