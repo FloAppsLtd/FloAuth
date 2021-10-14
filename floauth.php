@@ -1,10 +1,10 @@
 <?php
 /*
   Plugin Name: FloAuth
-  Version: 1.0.4
+  Version: 1.0.5
   Description: FloMembers authentication plugin
   Author: Flo Apps Ltd
-  Author URI: http://www.floapps.com
+  Author URI: https://floapps.com
   Text Domain: floauth
   Domain Path: /lang
   License: mit
