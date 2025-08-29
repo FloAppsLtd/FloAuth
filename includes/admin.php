@@ -3,14 +3,22 @@
  * Admin UI, settings page, dashboard widget
  */
 
-// Register options page, add hook for registering settings
+/**
+ * Register options page, add hook for registering settings
+ *
+ * @return void
+ */
 function floauth_plugin_menu() {
 	add_options_page( 'FloAuth', 'FloAuth', 'manage_options', 'floauth', 'floauth_plugin_settings_page' );
 	add_action( 'admin_init', 'floauth_plugin_register_settings' );
 }
 add_action( 'admin_menu', 'floauth_plugin_menu' );
 
-// Register plugin settings
+/**
+ * Register plugin settings
+ *
+ * @return void
+ */
 function floauth_plugin_register_settings() {
 	register_setting( 'floauth-settings-group', 'floauth_flomembers_url', array(
 			'sanitize_callback' => 'sanitize_text_field'
@@ -42,7 +50,11 @@ function floauth_plugin_register_settings() {
 	}
 }
 
-// Create settings page
+/**
+ * Create settings page
+ *
+ * @return void
+ */
 function floauth_plugin_settings_page() {
        if ( ! current_user_can( 'manage_options' ) ) {
 	       wp_die( __( 'You do not have sufficient permissions to access this page.', 'floauth' ) );
@@ -50,7 +62,11 @@ function floauth_plugin_settings_page() {
        include __DIR__ . '/views/settings-page.php';
 }
 
-// Dashboard widget for FloAuth admin role
+/**
+ * Dashboard widget for FloAuth admin role
+ *
+ * @return void
+ */
 function floauth_add_dashboard_meta_box() {
 	$admin_role = get_option( 'floauth_admin_role' );
 	if ( current_user_can( $admin_role ) ) {
@@ -59,6 +75,13 @@ function floauth_add_dashboard_meta_box() {
 }
 add_action( 'wp_dashboard_setup', 'floauth_add_dashboard_meta_box' );
 
+/**
+ * Dashboard meta box content
+ *
+ * @param WP_Post $post
+ * @param array $callback_args
+ * @return void
+ */
 function floauth_dashboard_meta_box_content( $post, $callback_args ) {
 	$support_url = floauth_get_submit_support_ticket_url();
 	$knowledgebase_url = 'https://support.floapps.com/knowledgebase.php';
@@ -69,6 +92,12 @@ function floauth_dashboard_meta_box_content( $post, $callback_args ) {
 }
 
 // Notification on Add New User screen
+/**
+ * Notification on Add New User screen
+ *
+ * @param string $type
+ * @return void
+ */
 function floauth_user_new_form_extra_notification( $type ) {
 	if ( $type === 'add-new-user' ) {
 		$article_link = 'https://support.floapps.com/knowledgebase.php?article=188';

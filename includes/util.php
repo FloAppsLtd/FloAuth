@@ -1,6 +1,9 @@
 <?php
 /**
  * Utility function for checking if an array is associative, not sequential
+ *
+ * @param array $array
+ * @return bool
  */
 function floauth_is_associative_array( $array ) {
 	return array_keys( $array ) !== range( 0, count( $array ) - 1 );
@@ -18,6 +21,9 @@ function floauth_get_submit_support_ticket_url() {
 
 /**
  * Add FloMembers link to toolbar
+ *
+ * @param WP_Admin_Bar $wp_admin_bar
+ * @return void
  */
 function floauth_add_toolbar_link_to_flomembers( $wp_admin_bar ) {
 	$flomembers_url = esc_url( get_option( 'floauth_flomembers_url' ) );
@@ -41,6 +47,8 @@ add_action( 'admin_bar_menu', 'floauth_add_toolbar_link_to_flomembers', 99 );
  *
  * Can be disabled with filter "floauth_hide_admin_bar_from_users"
  * Capability can be changed with filter "floauth_hide_admin_bar_capability"
+ *
+ * @return void
  */
 function floauth_hide_toolbar() {
 	if ( is_user_logged_in() ) {

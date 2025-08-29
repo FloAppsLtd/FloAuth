@@ -15,7 +15,11 @@ if ( ! function_exists( 'get_option' ) ) {
 	die;  // Silence is golden, direct call is prohibited
 }
 
-// Load plugin textdomain
+/**
+ * Load plugin textdomain
+ *
+ * @return void
+ */
 function floauth_load_plugin_textdomain() {
 	load_plugin_textdomain( 'floauth', false, basename( dirname( __FILE__ ) ) . '/languages/' );
 }

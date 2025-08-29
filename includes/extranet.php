@@ -3,6 +3,10 @@
  * Extranet path logic, search/filter/block
  */
 
+/**
+ * @param WP_Query $query
+ * @return WP_Query
+ */
 function floauth_filter_pre_get_posts( $query ) {
 	if( $query->is_search ) {
 		$capability = apply_filters( 'floauth_restrict_extranet_pages_capability', 'read' );
@@ -25,6 +29,9 @@ function floauth_filter_pre_get_posts( $query ) {
 }
 add_filter( 'pre_get_posts', 'floauth_filter_pre_get_posts' );
 
+/**
+ * @return void
+ */
 function floauth_block_extranet_pages() {
 	$capability = apply_filters( 'floauth_restrict_extranet_pages_capability', 'read' );
 	if( ! is_user_logged_in() || ! current_user_can( $capability ) ) {
@@ -43,6 +50,9 @@ function floauth_block_extranet_pages() {
 }
 add_action( 'template_redirect', 'floauth_block_extranet_pages' );
 
+/**
+ * @return int|null
+ */
 function floauth_get_extranet_post_id() {
 	if ( false === ( $extranet_post_id = get_transient( 'floauth_extranet_post_id' ) ) ) {
 		$extranet_path = get_option( 'floauth_extranet_path' );
@@ -57,6 +67,11 @@ function floauth_get_extranet_post_id() {
 	return $extranet_post_id;
 }
 
+/**
+ * @param mixed $old_value
+ * @param mixed $new_value
+ * @return void
+ */
 function floauth_clear_extranet_transient( $old_value, $new_value ) {
 	delete_transient( 'floauth_extranet_post_id' );
 }

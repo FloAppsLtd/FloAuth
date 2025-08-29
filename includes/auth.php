@@ -3,6 +3,8 @@
  * Handle authentication via FloMembers
  *
  * Triggers if request has "floauth" parameter
+ *
+ * @return void
  */
 function floauth_init() {
        if ( isset( $_GET['floauth'] ) ) {
@@ -156,6 +158,7 @@ add_action( 'init', 'floauth_init' );
  * @param string $user_id
  * @param string $username
  * @param WP_User $user_object
+ * @return void
  */
 function floauth_do_authentication( $user_id, $username, $user_object ) {
        wp_set_current_user( $user_id, $username );
