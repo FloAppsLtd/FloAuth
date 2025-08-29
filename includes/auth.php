@@ -14,20 +14,22 @@ function floauth_init() {
 	       $member_role = get_option( 'floauth_member_role', 'subscriber' );
 	       $admin_role = get_option( 'floauth_admin_role', 'administrator' );
 	       $extranet_path = get_option( 'floauth_extranet_path' );
+	       // Set floauth action
+	       $floauth_action = sanitize_text_field( $_GET['floauth'] );
 
 	       if ( isset( $_GET['hash'] ) ) {
 
 		       // Get URL parameters
-		       $hash = $_GET['hash'];
-		       $person_id = ( isset( $_GET['id'] ) ? $_GET['id'] : null );
-		       $username = ( isset( $_GET['username'] ) ? $_GET['username'] : null );
-		       $firstname = ( isset( $_GET['firstname'] ) ? $_GET['firstname'] : null );
-		       $lastname = ( isset( $_GET['lastname'] ) ? $_GET['lastname'] : null );
-		       $role = ( $_GET['role'] === 'admin' ? $admin_role : $member_role );
+		       $hash = sanitize_text_field( $_GET['hash'] );
+		       $person_id = ( isset( $_GET['id'] ) ? sanitize_text_field( $_GET['id'] ) : null );
+		       $username = ( isset( $_GET['username'] ) ? sanitize_text_field( $_GET['username'] ) : null );
+		       $firstname = ( isset( $_GET['firstname'] ) ? sanitize_text_field( $_GET['firstname'] ) : null );
+		       $lastname = ( isset( $_GET['lastname'] ) ? sanitize_text_field( $_GET['lastname'] ) : null );
+		       $role = ( isset( $_GET['role'] ) && $_GET['role'] === 'admin' ? $admin_role : $member_role );
 
 		       // Determine redirect URL by "floauth" parameter
 		       $redirect_path = apply_filters( 'floauth_modify_redirect_path', $extranet_path, $_GET );
-		       $redirect_url = ( $_GET['floauth'] === 'pages' ? esc_url_raw( site_url( '/' ) . $redirect_path ) : esc_url_raw( admin_url() ) );
+		       $redirect_url = ( $floauth_action === 'pages' ? esc_url_raw( site_url( '/' ) . $redirect_path ) : esc_url_raw( admin_url() ) );
 
 		       // Test existence of secret key and that hash matches
 		       if ( $secret_key && $username && md5( $secret_key . $username ) === $hash ) {
@@ -133,7 +135,7 @@ function floauth_init() {
 		       die;
 	       } else {
 		       $action = '';
-		       if ( $_GET['floauth'] == 'pages' ) {
+		       if ( $floauth_action === 'pages' ) {
 			       $action = '/pages';
 		       }
 		       if ( $flomembers_url && $secret_key ) {
