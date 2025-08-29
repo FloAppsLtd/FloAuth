@@ -67,7 +67,7 @@ function floauth_init() {
 				       // Get all roles
 				       $all_roles = array_keys( wp_roles()->get_names() );
 
-				       // Possibility to filter out roles that should not be checked and removed, f. ex. BBPress roles
+				       // Possibility to filter out roles that should not be checked and removed, e.g. BBPress roles
 				       $roles_to_check = apply_filters( 'floauth_filter_roles_to_check_on_login', $all_roles );
 
 				       // Get roles of matched user

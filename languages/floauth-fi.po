@@ -30,7 +30,7 @@ msgstr "FloMembers URL"
 #: floauth.php:94
 msgid ""
 "Insert your FloMembers installation URL <strong>without trailing slash</"
-"strong> (f. ex. https://edge.flomembers.com/demo)."
+"strong> (e.g. https://edge.flomembers.com/demo)."
 msgstr ""
 "Aseta tähän FloMembers-asennuksesi URL-osoite <strong>ilman kauttaviivaa "
 "lopussa</strong> (esim. https://edge.flomembers.com/demo)."
