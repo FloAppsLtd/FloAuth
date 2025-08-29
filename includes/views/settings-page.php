@@ -6,7 +6,7 @@
 		<table class="form-table">
 	        <tr>
 		        <th scope="row">
-		            <label for="floauth_flomembers_url"><?php _e( 'FloMembers URL', 'floauth' ); ?> *</label>
+		            <label for="floauth_flomembers_url"><?php _e( 'FloMembers URL', 'floauth' ); ?>&nbsp;*</label>
 		        </th>
 		        <td>
 		        	<input type="text" id="floauth_flomembers_url" class="regular-text" name="floauth_flomembers_url" value="<?php echo esc_attr( get_option( 'floauth_flomembers_url' ) ); ?>" />
@@ -15,7 +15,7 @@
 	        </tr>
 	        <tr>
 		        <th scope="row">
-		        	<label for="floauth_secret_key"><?php _e( 'Secret key', 'floauth' ); ?> *</label>
+		        	<label for="floauth_secret_key"><?php _e( 'Secret key', 'floauth' ); ?>&nbsp;*</label>
 		        </th>
 		        <td>
 		        	<input type="text" id="floauth_secret_key" class="regular-text" name="floauth_secret_key" value="<?php echo esc_attr( get_option( 'floauth_secret_key' ) ); ?>" />
@@ -24,7 +24,7 @@
 	        </tr>
 			<tr>
 				<th scope="row">
-					<label for="floauth_member_role"><?php _e( 'Role given to regular users', 'floauth' ); ?> *</label>
+					<label for="floauth_member_role"><?php _e( 'Role given to regular users', 'floauth' ); ?>&nbsp;*</label>
 				</th>
 				<td>
 					<select id="floauth_member_role" name="floauth_member_role">
@@ -35,7 +35,7 @@
 			</tr>
 			<tr>
 				<th scope="row">
-					<label for="floauth_admin_role"><?php _e( 'Role given to admins', 'floauth' ); ?> *</label>
+					<label for="floauth_admin_role"><?php _e( 'Role given to admins', 'floauth' ); ?>&nbsp;*</label>
 				</th>
 				<td>
 					<select id="floauth_admin_role" name="floauth_admin_role">
