@@ -1,9 +1,5 @@
 <?php
 /**
- * Admin UI, settings page, dashboard widget
- */
-
-/**
  * Register options page, add hook for registering settings
  *
  * @return void
@@ -91,7 +87,6 @@ function floauth_dashboard_meta_box_content( $post, $callback_args ) {
 <?php
 }
 
-// Notification on Add New User screen
 /**
  * Notification on Add New User screen
  *

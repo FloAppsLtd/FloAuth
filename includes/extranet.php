@@ -1,9 +1,10 @@
 <?php
 /**
- * Extranet path logic, search/filter/block
- */
-
-/**
+ * Remove extranet path and its children from search results if user has no rights
+ *
+ * Capability can be changed with filter "floauth_restrict_extranet_pages_capability"
+ * Capability defaults to "read", also logged-in users with no role have no access
+ *
  * @param WP_Query $query
  * @return WP_Query
  */
@@ -30,6 +31,11 @@ function floauth_filter_pre_get_posts( $query ) {
 add_filter( 'pre_get_posts', 'floauth_filter_pre_get_posts' );
 
 /**
+ * Disable access to extranet path and its children if user has no rights
+ *
+ * Capability can be changed with filter "floauth_restrict_extranet_pages_capability"
+ * Capability defaults to "read", also logged-in users with no role have no access
+ *
  * @return void
  */
 function floauth_block_extranet_pages() {
@@ -51,6 +57,10 @@ function floauth_block_extranet_pages() {
 add_action( 'template_redirect', 'floauth_block_extranet_pages' );
 
 /**
+ * Get extranet post ID from extranet path
+ *
+ * Saved to transient
+ *
  * @return int|null
  */
 function floauth_get_extranet_post_id() {
@@ -68,6 +78,8 @@ function floauth_get_extranet_post_id() {
 }
 
 /**
+ * Remove extranet post ID transient if option is updated
+ *
  * @param mixed $old_value
  * @param mixed $new_value
  * @return void
