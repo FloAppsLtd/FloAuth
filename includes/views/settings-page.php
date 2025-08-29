@@ -9,7 +9,7 @@
 		            <label for="floauth_flomembers_url"><?php _e( 'FloMembers URL', 'floauth' ); ?> *</label>
 		        </th>
 		        <td>
-		        	<input type="text" id="floauth_flomembers_url" class="regular-text" name="floauth_flomembers_url" value="<?php esc_attr_e( get_option( 'floauth_flomembers_url' ) ); ?>" />
+		        	<input type="text" id="floauth_flomembers_url" class="regular-text" name="floauth_flomembers_url" value="<?php echo esc_attr( get_option( 'floauth_flomembers_url' ) ); ?>" />
 		        	<p class="description"><?php _e( 'Insert your FloMembers installation URL <strong>without trailing slash</strong> (f. ex. https://edge.flomembers.com/demo).', 'floauth' ); ?></p>
 		        </td>
 	        </tr>
@@ -18,7 +18,7 @@
 		        	<label for="floauth_secret_key"><?php _e( 'Secret key', 'floauth' ); ?> *</label>
 		        </th>
 		        <td>
-		        	<input type="text" id="floauth_secret_key" class="regular-text" name="floauth_secret_key" value="<?php esc_attr_e( get_option( 'floauth_secret_key' ) ); ?>" />
+		        	<input type="text" id="floauth_secret_key" class="regular-text" name="floauth_secret_key" value="<?php echo esc_attr( get_option( 'floauth_secret_key' ) ); ?>" />
 		        	<p class="description"><?php printf( __( 'Insert alphanumeric secret key here. The key is provided by Flo Apps. You can contact us via our <a href="%s" target="_blank" rel="noreferrer noopener">support system</a>.', 'floauth' ), floauth_get_submit_support_ticket_url() ); ?></p>
 		        </td>
 	        </tr>
@@ -49,7 +49,7 @@
 					<label for="floauth_extranet_path"><?php _e( 'Extranet path', 'floauth' ); ?></label>
 				</th>
 				<td>
-					<input type="text" id="floauth_extranet_path" class="regular-text" name="floauth_extranet_path" value="<?php esc_attr_e( get_option( 'floauth_extranet_path' ) ); ?>" />
+					<input type="text" id="floauth_extranet_path" class="regular-text" name="floauth_extranet_path" value="<?php echo esc_attr( get_option( 'floauth_extranet_path' ) ); ?>" />
 					<div>
 						<p class="description"><?php _e( 'Insert the URL part (slug) of the page which serves as the member area (extranet) page. This page and its children are blocked and filtered out of search results from non-logged in users.', 'floauth' ); ?></p>
 						<p class="description"><strong><?php _e( 'Examples:', 'floauth' ); ?></strong></p>

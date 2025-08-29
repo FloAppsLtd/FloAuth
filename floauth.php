@@ -7,12 +7,11 @@
   Author URI: https://floapps.com
   Text Domain: floauth
   Domain Path: /lang
-  License: mit
+  License: MIT
  */
 
-if ( ! function_exists( 'get_option' ) ) {
-	header( 'HTTP/1.0 403 Forbidden' );
-	die;  // Silence is golden, direct call is prohibited
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
 }
 
 /**

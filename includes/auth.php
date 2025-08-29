@@ -30,7 +30,7 @@ function floauth_init() {
 		       $role = ( isset( $_GET['role'] ) && $_GET['role'] === 'admin' ? $admin_role : $member_role );
 
 		       // Determine redirect URL by "floauth" parameter
-		       $redirect_path = apply_filters( 'floauth_modify_redirect_path', $extranet_path, $_GET );
+		       $redirect_path = sanitize_text_field( apply_filters( 'floauth_modify_redirect_path', $extranet_path, $_GET ) );
 		       $redirect_url = ( $floauth_action === 'pages' ? esc_url_raw( site_url( '/' ) . $redirect_path ) : esc_url_raw( admin_url() ) );
 
 		       // Test existence of secret key and that hash matches
@@ -61,12 +61,11 @@ function floauth_init() {
 			       }
 
 			       if ( $matched_user ) {
-				       global $wp_roles;
 				       $user_id = $matched_user->ID;
 				       $user_login = $matched_user->user_login;
 
 				       // Get all roles
-				       $all_roles = array_keys( $wp_roles->get_names() );
+				       $all_roles = array_keys( wp_roles()->get_names() );
 
 				       // Possibility to filter out roles that should not be checked and removed, f. ex. BBPress roles
 				       $roles_to_check = apply_filters( 'floauth_filter_roles_to_check_on_login', $all_roles );
