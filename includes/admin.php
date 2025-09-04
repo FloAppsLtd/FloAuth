@@ -112,7 +112,7 @@ function floauth_dashboard_meta_box_content( $post, $callback_args ) {
 		<?php
 		echo wp_kses_post(
 			sprintf(
-			// translators: %1$s: support URL, %2$s: support link text.
+				// translators: %1$s: support URL, %2$s: support link text.
 				__( 'You can leave a support request at <a href="%1$s" target="_blank" rel="noreferrer noopener">%2$s</a>.', 'floauth' ),
 				esc_url( $support_url ),
 				esc_html( $support_url )
@@ -124,7 +124,7 @@ function floauth_dashboard_meta_box_content( $post, $callback_args ) {
 		<?php
 		echo wp_kses_post(
 			sprintf(
-			// translators: %1$s: knowledge base URL, %2$s: knowledge base link text.
+				// translators: %1$s: knowledge base URL, %2$s: knowledge base link text.
 				__( 'You can view knowledge base articles at <a href="%1$s" target="_blank" rel="noreferrer noopener">%2$s</a>.', 'floauth' ),
 				esc_url( $knowledgebase_url ),
 				esc_html( $knowledgebase_url )
@@ -151,7 +151,7 @@ function floauth_user_new_form_extra_notification( $type ) {
 			<?php
 			echo wp_kses_post(
 				sprintf(
-				// translators: %1$s: knowledge base article URL , %2$s: support URL.
+					// translators: %1$s: knowledge base article URL , %2$s: support URL.
 					__( 'If you have questions, please see <a href="%1$s" target="_blank" rel="noreferrer noopener">this article</a> for more information or leave us a <a href="%2$s" target="_blank" rel="noreferrer noopener">support request</a>.', 'floauth' ),
 					esc_url( $article_link ),
 					esc_url( floauth_get_submit_support_ticket_url() )
