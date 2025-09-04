@@ -155,6 +155,7 @@ function floauth_update_existing_user( $matched_user, $role, $user_meta, $params
 	$user_current_roles    = get_userdata( $user_id )->roles;
 	$user_already_has_role = in_array( $role, $user_current_roles, true );
 	if ( ! $user_already_has_role ) {
+		// Remove matching roles from the user, then add the requested role.
 		$user_matching_roles = array_intersect( $roles_to_check, $user_current_roles );
 		foreach ( $user_matching_roles as $matching_role ) {
 			$matched_user->remove_role( $matching_role );

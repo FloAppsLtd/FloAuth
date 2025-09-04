@@ -81,7 +81,7 @@ function floauth_plugin_settings_page() {
 	if ( ! current_user_can( 'manage_options' ) ) {
 		wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'floauth' ) );
 	}
-	include __DIR__ . '/views/settings-page.php';
+	include dirname( __DIR__ ) . '/views/settings-page.php';
 }
 
 /**
