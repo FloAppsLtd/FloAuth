@@ -44,7 +44,7 @@ function custom_floauth_add_user_meta_data( $meta_data, $parameters ) {
 		if ( in_array( $group_to_test, $user_group_ids ) ) {
 			// Add some meta field
 			$meta_data['custom_field'] = 'some value';
-		} 
+		}
 	}
 	return $meta_data;
 }
@@ -147,3 +147,31 @@ function custom_floauth_parameter_for_matching_user( $parameter ) {
 }
 add_filter( 'floauth_parameter_for_matching_user', 'custom_floauth_parameter_for_matching_user' );
 ```
+
+## Test logins
+
+Login can be tested without access to a FloMembers installation.
+
+**Admin login:**
+```
+https://example.org?floauth&id=123&username=john.doe%40email.com&firstname=John&lastname=Doe&role=admin&ismember=1&hash=examplehash
+```
+
+**Regular user login:**
+```
+https://example.org?floauth=pages&id=123&username=john.doe%40email.com&firstname=John&lastname=Doe&role=member&ismember=1&hash=examplehash
+```
+
+### Parameters
+
+- `floauth`: Can be used as a flag (for admin login) or with a value `pages` for regular users.
+- `id`: Person's ID in FloMembers
+- `username`: Person's email
+- `firstname`: Person's first name
+- `lastname`: Person's last name
+- `role`: Person's role (`admin` or `member`)
+- `groups`: Comma-separated group IDs
+- `ismember`: `1` if member or admin, otherwise `0`
+- `hash`: Security hash (MD5 of secret key + email)
+- `address`, `extraaddress`, `postoffice`, `postcode`, `mobile`, `phone`: Contact details
+- `forum`: Forum parameter (optional)
