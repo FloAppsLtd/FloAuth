@@ -148,7 +148,7 @@ function custom_floauth_parameter_for_matching_user( $parameter ) {
 add_filter( 'floauth_parameter_for_matching_user', 'custom_floauth_parameter_for_matching_user' );
 ```
 
-## Login URL Examples
+## Test logins
 
 Login can be tested without access to a FloMembers installation.
 
