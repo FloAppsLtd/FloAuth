@@ -87,7 +87,8 @@ For example redirect user back to where they came from, if `forum` parameter is 
 ```
 function custom_floauth_modify_redirect_path( $redirect_path, $parameters ) {
 	if ( isset( $parameters['forum'] ) ) {
-		// In order to work, "forum" parameter should include a path to a page, f. ex. ?forum=another/page
+		// In order to work, "forum" parameter should include a path to a page,
+		e.g. ?forum=another/page
 		$redirect_path = $parameters['forum'];
 	}
 	return $redirect_path;
