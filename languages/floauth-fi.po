@@ -30,7 +30,7 @@ msgstr "FloMembers URL"
 #: floauth.php:94
 msgid ""
 "Insert your FloMembers installation URL <strong>without trailing slash</"
-"strong> (f. ex. https://edge.flomembers.com/demo)."
+"strong> (e.g. https://edge.flomembers.com/demo)."
 msgstr ""
 "Aseta tähän FloMembers-asennuksesi URL-osoite <strong>ilman kauttaviivaa "
 "lopussa</strong> (esim. https://edge.flomembers.com/demo)."
@@ -114,20 +114,20 @@ msgstr "Flo Apps (tuki)"
 #: floauth.php:376
 #, php-format
 msgid ""
-"You can leave a support request at <a href=\"%s\" target=\"_blank\" rel="
-"\"noreferrer noopener\">%s</a>."
+"You can leave a support request at <a href=\"%1$s\" target=\"_blank\" rel="
+"\"noreferrer noopener\">%2$s</a>."
 msgstr ""
-"Voit jättää tukipyynnön osoitteessa <a href=\"%s\" target=\"_blank\" rel="
-"\"noreferrer noopener\">%s</a>."
+"Voit jättää tukipyynnön osoitteessa <a href=\"%1$s\" target=\"_blank\" rel="
+"\"noreferrer noopener\">%2$s</a>."
 
 #: floauth.php:377
 #, php-format
 msgid ""
-"You can view knowledge base articles at <a href=\"%s\" target=\"_blank\" rel="
-"\"noreferrer noopener\">%s</a>."
+"You can view knowledge base articles at <a href=\"%1$s\" target=\"_blank\" rel="
+"\"noreferrer noopener\">%2$s</a>."
 msgstr ""
-"Tukipankkiartikkelit löytyvät osoitteesta <a href=\"%s\" target=\"_blank\" "
-"rel=\"noreferrer noopener\">%s</a>."
+"Tukipankkiartikkelit löytyvät osoitteesta <a href=\"%1$s\" target=\"_blank\" "
+"rel=\"noreferrer noopener\">%2$s</a>."
 
 #: floauth.php:390
 msgid "Notification from FloAuth"
@@ -144,14 +144,14 @@ msgstr ""
 #: floauth.php:392
 #, php-format
 msgid ""
-"If you have questions, please see <a href=\"%s\" target=\"_blank\" rel="
+"If you have questions, please see <a href=\"%1$s\" target=\"_blank\" rel="
 "\"noreferrer noopener\">this article</a> for more information or leave us a "
-"<a href=\"%s\" target=\"_blank\" rel=\"noreferrer noopener\">support "
+"<a href=\"%2$s\" target=\"_blank\" rel=\"noreferrer noopener\">support "
 "request</a>."
 msgstr ""
-"Jos sinulla on kysymyksiä, saat lisätietoja <a href=\"%s\" target=\"_blank\" "
+"Jos sinulla on kysymyksiä, saat lisätietoja <a href=\"%1$s\" target=\"_blank\" "
 "rel=\"noreferrer noopener\">tästä artikkelista</a>. Voit myös jättää meille "
-"<a href=\"%s\" target=\"_blank\" rel=\"noreferrer noopener\">tukipyynnön</a>."
+"<a href=\"%2$s\" target=\"_blank\" rel=\"noreferrer noopener\">tukipyynnön</a>."
 
 #~ msgid ""
 #~ "We recommend you to use <strong>FloMembers</strong> for user management."
