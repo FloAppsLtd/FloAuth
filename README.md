@@ -192,6 +192,6 @@ https://example.org?floauth=pages&id=123&username=john.doe%40email.com&firstname
 - `id`: Person's ID in FloMembers
 - `ismember`: `1` if member or admin, otherwise `0`
 - `lastname`: Person's last name
-- `role`: Person's role (`admin` or `member`)
+- `role`: Person's role (`admin` (i.e. WordPress admin) or `member`)
 - `roles`: Comma-separated role IDs
 - `username`: Person's email
